@@ -80,6 +80,27 @@ def handler(event: dict, context) -> dict:
                 'body': json.dumps({'token': token, 'user': {'id': user[0], 'name': user[1], 'email': user[2]}})
             }
 
+        elif action == 'change_password':
+            user_id = body.get('user_id')
+            old_password = body.get('old_password', '')
+            new_password = body.get('new_password', '')
+
+            if not user_id or not old_password or not new_password:
+                return {'statusCode': 400, 'headers': CORS, 'body': json.dumps({'error': 'Заполните все поля'})}
+
+            if len(new_password) < 6:
+                return {'statusCode': 400, 'headers': CORS, 'body': json.dumps({'error': 'Новый пароль минимум 6 символов'})}
+
+            cur.execute("SELECT id FROM users WHERE id = %s AND password_hash = %s",
+                        (user_id, hash_password(old_password)))
+            if not cur.fetchone():
+                return {'statusCode': 401, 'headers': CORS, 'body': json.dumps({'error': 'Текущий пароль неверен'})}
+
+            cur.execute("UPDATE users SET password_hash = %s WHERE id = %s",
+                        (hash_password(new_password), user_id))
+            conn.commit()
+            return {'statusCode': 200, 'headers': CORS, 'body': json.dumps({'success': True})}
+
         else:
             return {'statusCode': 400, 'headers': CORS, 'body': json.dumps({'error': 'Неизвестное действие'})}
 

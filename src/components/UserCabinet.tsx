@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { X, LogOut, Plus } from "lucide-react"
+import { X, LogOut, Plus, KeyRound } from "lucide-react"
 import { useAuth } from "../hooks/useAuth"
 import func2url from "../../backend/func2url.json"
 
@@ -26,10 +26,16 @@ export function UserCabinet({ onClose }: Props) {
   const { user, logout } = useAuth()
   const [orders, setOrders] = useState<Order[]>([])
   const [showNewOrder, setShowNewOrder] = useState(false)
+  const [showChangePassword, setShowChangePassword] = useState(false)
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [loading, setLoading] = useState(false)
   const [sending, setSending] = useState(false)
+  const [oldPassword, setOldPassword] = useState("")
+  const [newPassword, setNewPassword] = useState("")
+  const [pwdError, setPwdError] = useState("")
+  const [pwdSuccess, setPwdSuccess] = useState(false)
+  const [pwdLoading, setPwdLoading] = useState(false)
 
   const loadOrders = async () => {
     if (!user) return
@@ -41,6 +47,31 @@ export function UserCabinet({ onClose }: Props) {
   }
 
   useEffect(() => { loadOrders() }, [])
+
+  const handleChangePassword = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!user) return
+    setPwdError("")
+    setPwdSuccess(false)
+    setPwdLoading(true)
+    try {
+      const res = await fetch(func2url.auth, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "change_password", user_id: user.id, old_password: oldPassword, new_password: newPassword }),
+      })
+      const data = await res.json()
+      if (!res.ok) { setPwdError(data.error); return }
+      setPwdSuccess(true)
+      setOldPassword("")
+      setNewPassword("")
+      setShowChangePassword(false)
+    } catch {
+      setPwdError("Ошибка. Попробуйте ещё раз.")
+    } finally {
+      setPwdLoading(false)
+    }
+  }
 
   const handleNewOrder = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -68,6 +99,13 @@ export function UserCabinet({ onClose }: Props) {
           </div>
           <div className="flex gap-3">
             <button
+              onClick={() => setShowChangePassword(!showChangePassword)}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              title="Изменить пароль"
+            >
+              <KeyRound className="w-5 h-5" />
+            </button>
+            <button
               onClick={() => { logout(); onClose() }}
               className="text-muted-foreground hover:text-foreground transition-colors"
               title="Выйти"
@@ -79,6 +117,39 @@ export function UserCabinet({ onClose }: Props) {
             </button>
           </div>
         </div>
+
+        {showChangePassword && (
+          <div className="px-8 py-5 border-b border-gray-100 bg-gray-50">
+            <p className="text-sm font-medium mb-3">Изменить пароль</p>
+            {pwdSuccess && <p className="text-green-600 text-sm mb-3">Пароль успешно изменён!</p>}
+            <form onSubmit={handleChangePassword} className="flex flex-col gap-3">
+              <input
+                type="password"
+                placeholder="Текущий пароль"
+                value={oldPassword}
+                onChange={(e) => setOldPassword(e.target.value)}
+                required
+                className="w-full border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:border-gray-400"
+              />
+              <input
+                type="password"
+                placeholder="Новый пароль (мин. 6 символов)"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                required
+                className="w-full border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:border-gray-400"
+              />
+              {pwdError && <p className="text-red-500 text-sm">{pwdError}</p>}
+              <button
+                type="submit"
+                disabled={pwdLoading}
+                className="self-start bg-foreground text-white px-5 py-2 text-sm hover:bg-foreground/80 transition-colors disabled:opacity-60"
+              >
+                {pwdLoading ? "Сохранение..." : "Сохранить"}
+              </button>
+            </form>
+          </div>
+        )}
 
         <div className="px-8 py-6 flex-1">
           <div className="flex items-center justify-between mb-6">
