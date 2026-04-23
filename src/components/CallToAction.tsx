@@ -11,11 +11,11 @@ export function CallToAction() {
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-medium leading-[1.1] tracking-tight mb-8 text-balance">
             Готовы создать
             <br />
-            нечто <HighlightedText>выдающееся</HighlightedText>?
+            квартиру <HighlightedText>мечты</HighlightedText>?
           </h2>
 
           <p className="text-primary-foreground/70 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
-            Давайте обсудим, как воплотить вашу идею в жизнь. Каждое великое пространство начинается с разговора.
+            Запишитесь на бесплатную консультацию. Обсудим вашу квартиру, стиль и бюджет — без обязательств и навязчивых продаж.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
