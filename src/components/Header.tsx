@@ -34,7 +34,7 @@ export function Header() {
       <nav className="container mx-auto px-6 flex items-center justify-between md:px-[24]">
         <a href="/" className="flex items-center gap-2 group" onClick={scrollToTop}>
           <span className="text-2xl font-bold tracking-tight">
-            <span className="text-white">M</span><span style={{color: "#a855f7"}}>at</span>
+            <span className="text-black">M</span><span style={{color: "#a855f7"}}>at</span>
           </span>
         </a>
 
@@ -49,7 +49,7 @@ export function Header() {
             <li key={item.label}>
               <a
                 href={item.href}
-                className="hover:text-[rgb(251,146,60)] transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 hover:after:w-full after:bg-[rgb(251,146,60)] after:transition-all after:duration-300 text-white"
+                className="hover:text-[rgb(251,146,60)] transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 hover:after:w-full after:bg-[rgb(251,146,60)] after:transition-all after:duration-300 text-black"
               >
                 {item.label}
               </a>
@@ -70,7 +70,7 @@ export function Header() {
         </a>
 
         <button
-          className="md:hidden z-50 transition-colors duration-300 text-white"
+          className="md:hidden z-50 transition-colors duration-300 text-black"
           aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
@@ -106,7 +106,7 @@ export function Header() {
               <li key={item.label}>
                 <a
                   href={item.href}
-                  className="hover:text-[rgb(251,146,60)] transition-colors duration-300 text-white text-4xl font-light block"
+                  className="hover:text-[rgb(251,146,60)] transition-colors duration-300 text-black text-4xl font-light block"
                   onClick={closeMobileMenu}
                 >
                   {item.label}
