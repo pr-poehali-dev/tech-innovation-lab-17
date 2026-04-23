@@ -60,12 +60,19 @@ export function Philosophy() {
               <HighlightedText>душой</HighlightedText>
             </h2>
 
-            <div className="relative hidden lg:block">
-              <img
-                src="/images/exterior.png"
-                alt="Архитектурный эскиз рабочего пространства"
-                className="opacity-90 relative z-10 w-auto"
-              />
+            <div className="relative hidden lg:block mt-10">
+              <div className="flex items-center gap-5">
+                <img
+                  src="https://cdn.poehali.dev/files/fed0933e-9d2c-4338-a13c-07000542f1d1.JPG"
+                  alt="Сухоруков Матвей Сергеевич"
+                  className="w-20 h-20 object-cover object-top rounded-full border-2 border-border"
+                />
+                <div>
+                  <p className="font-semibold text-foreground text-lg leading-tight">Сухоруков Матвей Сергеевич</p>
+                  <p className="text-muted-foreground text-sm mt-1">Директор · Дизайнер интерьеров</p>
+                  <p className="text-muted-foreground text-sm">Студент 3 курса ВВГУ</p>
+                </div>
+              </div>
             </div>
           </div>
 
