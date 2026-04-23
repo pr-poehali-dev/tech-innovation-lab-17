@@ -1,9 +1,15 @@
 import { useState, useEffect, MouseEvent } from "react"
 import { cn } from "../lib/utils"
+import { useAuth } from "../hooks/useAuth"
+import { AuthModal } from "./AuthModal"
+import { UserCabinet } from "./UserCabinet"
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [showAuth, setShowAuth] = useState(false)
+  const [showCabinet, setShowCabinet] = useState(false)
+  const { user } = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +29,7 @@ export function Header() {
   }
 
   return (
+    <>
     <header
       className={cn(
         "fixed z-50 transition-all duration-500 my-0 py-0 rounded-none",
@@ -57,17 +64,29 @@ export function Header() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className={cn(
-            "hidden md:inline-flex items-center gap-2 text-sm px-5 py-2.5 transition-all duration-300",
-            scrolled
-              ? "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white"
-              : "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white",
+        <div className="hidden md:flex items-center gap-3">
+          {user ? (
+            <button
+              onClick={() => setShowCabinet(true)}
+              className="inline-flex items-center gap-2 text-sm px-5 py-2.5 bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white transition-all duration-300"
+            >
+              {user.name}
+            </button>
+          ) : (
+            <button
+              onClick={() => setShowAuth(true)}
+              className="inline-flex items-center gap-2 text-sm px-5 py-2.5 bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white transition-all duration-300"
+            >
+              Войти
+            </button>
           )}
-        >
-          Связаться
-        </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 text-sm px-5 py-2.5 bg-foreground text-white hover:bg-foreground/80 transition-all duration-300"
+          >
+            Связаться
+          </a>
+        </div>
 
         <button
           className="md:hidden z-50 transition-colors duration-300 text-black"
@@ -125,5 +144,13 @@ export function Header() {
         </div>
       </div>
     </header>
+
+    {showAuth && (
+      <AuthModal onClose={() => setShowAuth(false)} onSuccess={() => {}} />
+    )}
+    {showCabinet && (
+      <UserCabinet onClose={() => setShowCabinet(false)} />
+    )}
+    </>
   )
 }
