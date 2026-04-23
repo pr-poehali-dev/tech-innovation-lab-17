@@ -34,6 +34,38 @@ const projects = [
     year: "2025",
     image: "https://cdn.poehali.dev/projects/5222242b-1f96-4301-89a1-3d7cf2808dfb/bucket/729859ba-da71-4148-88d1-216951c6828b.jpg",
   },
+  {
+    id: 5,
+    title: "Роскошная ванная комната",
+    category: "18 м² · Санузел",
+    location: "Находка",
+    year: "2025",
+    image: "https://cdn.poehali.dev/files/ba04562d-c7be-402a-bbb9-802b1f2d2742.jpg",
+  },
+  {
+    id: 6,
+    title: "Гостиная с подсветкой",
+    category: "45 м² · Гостиная",
+    location: "Находка",
+    year: "2026",
+    image: "https://cdn.poehali.dev/files/b19b1fbe-a11c-434e-a2ee-22d273630ae5.jpg",
+  },
+  {
+    id: 7,
+    title: "Классическая гостиная",
+    category: "60 м² · Двухкомнатная",
+    location: "Артём",
+    year: "2025",
+    image: "https://cdn.poehali.dev/files/c6c02ba3-aee7-45d1-b306-61f464e1469a.jpg",
+  },
+  {
+    id: 8,
+    title: "Лофт с антресолью",
+    category: "50 м² · Студия",
+    location: "Артём",
+    year: "2026",
+    image: "https://cdn.poehali.dev/files/51c2b0b7-aa14-435e-887a-a924ccc2b2a1.jpg",
+  },
 ]
 
 export function Projects() {
