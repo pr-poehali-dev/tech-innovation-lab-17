@@ -137,13 +137,13 @@ export function Hero() {
         }}
       >
         <div className="mb-72 md:mb-60 lg:mb-80">
-          <p className="text-sm tracking-[0.3em] uppercase text-center text-black mb-0">{"Дизайн интерьеров квартир"}</p>
+          <p className="text-sm tracking-[0.3em] uppercase text-center text-black font-bold mb-0">{"Дизайн интерьеров квартир"}</p>
 
           <h1
             ref={titleRef}
-            className="text-7xl font-medium text-balance text-center mb-0 tracking-tight leading-[0.9] lg:text-8xl"
+            className="text-7xl font-bold text-balance text-center mb-0 tracking-tight leading-[0.9] lg:text-8xl"
           >
-            <span style={{color: "#6b4c3b"}}>{"Превращаем квартиру"}</span>
+            <span style={{color: "#3d2010"}}>{"Превращаем квартиру"}</span>
             <br />
             <span className="text-black">{"в мечту"}</span>
           </h1>
