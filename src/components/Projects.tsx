@@ -66,6 +66,22 @@ const projects = [
     year: "2026",
     image: "https://cdn.poehali.dev/files/51c2b0b7-aa14-435e-887a-a924ccc2b2a1.jpg",
   },
+  {
+    id: 9,
+    title: "Тёмно-синяя кухня",
+    category: "25 м² · Кухня",
+    location: "Большой Камень",
+    year: "2026",
+    image: "https://cdn.poehali.dev/projects/5222242b-1f96-4301-89a1-3d7cf2808dfb/bucket/d49d590a-3ae3-4317-b09a-87eee0bb6f9e.jpg",
+  },
+  {
+    id: 10,
+    title: "Кухня-студия в тёмных тонах",
+    category: "40 м² · Студия",
+    location: "Большой Камень",
+    year: "2025",
+    image: "https://cdn.poehali.dev/files/7381ae8c-51db-4f2f-9e02-b13f6ce75a58.jpg",
+  },
 ]
 
 export function Projects() {
