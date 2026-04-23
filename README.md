@@ -1,3 +1,7 @@
-# tech-innovation-lab-17
+# Пространство — Шаблон архитектурной студии
 
-Initial repository setup for pr-poehali-dev/tech-innovation-lab-17
+![Preview](https://cdn.poehali.dev/templates/hously-studio/preview-ru.jpg)
+
+Современный лендинг для архитектурной студии или дизайн-бюро. Минималистичный дизайн с акцентом на портфолио проектов, философию компании и контактную информацию. Идеально подходит для креативных агентств, архитекторов и дизайнеров интерьеров.
+
+`"tags": ["landing", "light", "creative", "portfolio"]`
