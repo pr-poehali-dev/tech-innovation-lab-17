@@ -7,7 +7,7 @@ const projects = [
     title: "Лофт с тёмными акцентами",
     category: "55 м² · Студия",
     location: "Владивосток",
-    year: "2024",
+    year: "2026",
     image: "https://cdn.poehali.dev/files/e6459208-ea8a-4e7a-889d-7107e3481dd6.jpg",
   },
   {
@@ -15,7 +15,7 @@ const projects = [
     title: "Индустриальный интерьер",
     category: "80 м² · Двухкомнатная",
     location: "Владивосток",
-    year: "2024",
+    year: "2026",
     image: "https://cdn.poehali.dev/files/7cd66fa0-364a-43de-8c2f-1def5f05e3ce.jpg",
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     title: "Квартира с кирпичной стеной",
     category: "70 м² · Двухкомнатная",
     location: "Владивосток",
-    year: "2024",
+    year: "2025",
     image: "https://cdn.poehali.dev/files/f9878d80-41ac-472e-86e5-e6b0c2a511fe.jpg",
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     title: "Светлая семейная квартира",
     category: "90 м² · Трёхкомнатная",
     location: "Владивосток",
-    year: "2023",
+    year: "2025",
     image: "https://cdn.poehali.dev/projects/5222242b-1f96-4301-89a1-3d7cf2808dfb/bucket/729859ba-da71-4148-88d1-216951c6828b.jpg",
   },
 ]
