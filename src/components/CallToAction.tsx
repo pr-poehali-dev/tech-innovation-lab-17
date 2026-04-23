@@ -95,6 +95,29 @@ export function CallToAction() {
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 )}
               </button>
+
+              <div className="flex items-center gap-4 my-2">
+                <div className="flex-1 h-px bg-white/20" />
+                <span className="text-white/40 text-xs">или свяжитесь напрямую</span>
+                <div className="flex-1 h-px bg-white/20" />
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="tel:+79644468365"
+                  className="flex-1 inline-flex items-center justify-center gap-2 border border-white/20 px-5 py-3 text-sm text-white/80 hover:bg-white/10 transition-colors duration-300"
+                >
+                  +7 (964) 446-83-65
+                </a>
+                <a
+                  href="https://t.me/drippingoat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 border border-white/20 px-5 py-3 text-sm text-white/80 hover:bg-white/10 transition-colors duration-300"
+                >
+                  Telegram @drippingoat
+                </a>
+              </div>
             </form>
           )}
         </div>
